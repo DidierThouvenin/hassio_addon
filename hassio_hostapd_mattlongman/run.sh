@@ -18,6 +18,9 @@ logger(){
     fi
 }
 
+# Kill existing hostapd and wait 2 seconds to close the ressources
+killall -q hostapd && sleep 2
+
 CONFIG_PATH=/data/options.json
 
 SSID=$(jq --raw-output ".ssid" $CONFIG_PATH)
