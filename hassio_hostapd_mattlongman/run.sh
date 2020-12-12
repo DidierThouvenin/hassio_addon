@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -x
 
 # SIGTERM-handler this funciton will be executed when the container receives the SIGTERM signal (when stopping)
 term_handler(){
@@ -19,6 +19,7 @@ logger(){
 }
 
 # Kill existing hostapd and wait 2 seconds to close the ressources
+logger "Stop previous session of hostapd"
 killall -q hostapd && sleep 2
 
 CONFIG_PATH=/data/options.json
